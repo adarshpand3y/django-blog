@@ -8,9 +8,9 @@
 <div class="container" style="min-height: 85vh;">
     <div class="card my-4">
         <div class="card-body">
-            <h3>{{blog.title}}</h3>
+            <h1>{{blog.title}}</h1>
             <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified: {{blog.last_modified}}</span>
-            <p>{{blog.content}}</p>
+            <p>{{blog.content|safe}}</p>
         </div>
     </div>
 </div>

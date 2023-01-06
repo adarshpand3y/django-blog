@@ -11,11 +11,23 @@ Django Blog | Showing all blogs
     <div class="card my-2">
         <div class="card-body">
             <h3>{{blog.title}}</h3>
-            <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified: {{blog.last_modified}}</span>
-            <p>{{blog.content | truncatechars:250}}</p>
+            <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified:
+                {{blog.last_modified}}</span>
+            <div class="my-2 preview">{{blog.content|safe|truncatechars:250}}</div>
             <a class="btn btn-primary" href="/blog/{{blog.id}}">Continue Reading</a>
         </div>
     </div>
     {% endfor %}
 </div>
+
+<script>
+    window.addEventListener("load", () => {
+        // The following code fires when the browser window has loaded
+        const previews = document.getElementsByClassName('preview');
+        Array.from(previews).forEach((element) => {
+            element.innerHTML = element.innerText;
+        })
+    })
+</script>
+
 {% endblock body %}

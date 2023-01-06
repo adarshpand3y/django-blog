@@ -6,7 +6,7 @@ def index(request):
     return render(request, "index.html")
 
 def blogs(request):
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.all().order_by("-date_added")
     context = {"blogs": blogs}
     return render(request, "blogs.html", context)
 

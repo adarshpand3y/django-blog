@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Blog
+from .models import Blog, Contact
 
 # Create your views here.
 def index(request):
@@ -16,4 +16,12 @@ def blog(request, blog_id):
     return render(request, "blog.html", context)
 
 def contact(request):
-    return render(request, "contact.html")
+    parameters = {"submitted": False}
+    if request.method == "POST":
+        name = request.POST["user_name"]
+        email = request.POST["user_email"]
+        message = request.POST["user_message"]
+        newContact = Contact(name=name, email=email, message=message)
+        newContact.save()
+        parameters["submitted"] = True
+    return render(request, "contact.html", parameters)

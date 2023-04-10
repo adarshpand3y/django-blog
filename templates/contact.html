@@ -13,22 +13,40 @@ Django Blogs | Contact Me
 </div>
 <div class="container max-wid">
     <p class="lead text-center fs-4">Fill the form below to get in touch.</p>
-    <form action="">
+    <div id="alertDiv">
+        
+    </div>
+    <form action="/contact" method="POST">
+        {% csrf_token %}
         <div class="mb-3">
             <label for="nameInput" class="form-label">Enter your name</label>
-            <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
+            <input name="user_name" type="text" class="form-control" id="nameInput" placeholder="Enter your name">
         </div>
         <div class="mb-3">
             <label for="emailInput" class="form-label">Enter your name</label>
-            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+            <input name="user_email" type="email" class="form-control" id="emailInput" placeholder="name@example.com">
         </div>
         <div class="mb-3">
             <label for="messageInput" class="form-label">Enter your message</label>
-            <textarea class="form-control" id="messageInput" rows="3" placeholder="Enter your message"></textarea>
+            <textarea name="user_message" class="form-control" id="messageInput" rows="3"
+                placeholder="Enter your message"></textarea>
         </div>
         <center>
             <button class="btn btn-primary mb-3">Submit!</button>
         </center>
     </form>
 </div>
+
+<script>
+    const alertDiv = document.getElementById("alertDiv");
+    const alertMessage = `<div class="alert alert-info my-4" role="alert">
+            Form submitted successfully. I'll get in touch with you soon.
+        </div>`;
+        const isSubmitted = `{{submitted}}`.toLowerCase();
+        if (isSubmitted === "true") {
+            alertDiv.innerHTML = alertMessage;
+        }
+        setTimeout(() => {alertDiv.innerHTML = ""} , 5000)
+</script>
+
 {% endblock body %}

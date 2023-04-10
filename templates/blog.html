@@ -5,13 +5,9 @@
 {% endblock title %}
 
 {% block body %}
-<div class="container" style="min-height: 85vh;">
-    <div class="card my-4">
-        <div class="card-body">
-            <h1>{{blog.title}}</h1>
-            <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified: {{blog.last_modified}}</span>
-            <p>{{blog.content|safe}}</p>
-        </div>
-    </div>
+<div class="container max-wid my-4" style="min-height: 85vh;">
+    <h1>{{blog.title}}</h1>
+    <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified: {{blog.last_modified}}</span>
+    <p>{{blog.content|safe}}</p>
 </div>
 {% endblock body %}

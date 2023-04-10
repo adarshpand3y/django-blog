@@ -5,17 +5,16 @@ Django Blog | Showing all blogs
 {% endblock title %}
 
 {% block body %}
-<div class="container" style="min-height: 85vh;">
-    <h1 class="text-center">Showing all blogs</h1>
+<div class="container max-wid" style="min-height: 85vh;">
+    <h1 class="text-center my-2">Showing all blogs</h1>
     {% for blog in blogs %}
-    <div class="card my-2">
-        <div class="card-body">
-            <h3>{{blog.title}}</h3>
-            <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified:
-                {{blog.last_modified}}</span>
-            <div class="my-2 preview">{{blog.content|safe|truncatechars:250}}</div>
-            <a class="btn btn-primary" href="/blog/{{blog.id}}">Continue Reading</a>
-        </div>
+    <div class="mb-4">
+        <h3 class="fw-bold display-6">
+            <a class="blog-main-link" href="/blog/{{blog.id}}">{{blog.title}}</a>
+        </h3>
+        <div class="my-2 preview">{{blog.content|safe|truncatechars:250}}</div>
+        <span class="text-muted">Date added: {{blog.date_added}} &#x2022; Last modified: {{blog.last_modified}}</span>
+        <hr>
     </div>
     {% endfor %}
 </div>

@@ -5,7 +5,30 @@ Django Blogs | Contact Me
 {% endblock title %}
 
 {% block body %}
-<div class="container">
-    <h1>Contact Me</h1>
+<div class="p-5 mb-4 bg-body-tertiary bg-contact">
+    <div class="container p-5">
+        <h1 class="display-1 fw-bold">Contact Me</h1>
+        <p class="col-md-8 fs-1 text-center">Have questions? I have answers.</p>
+    </div>
+</div>
+<div class="container max-wid">
+    <p class="lead text-center fs-4">Fill the form below to get in touch.</p>
+    <form action="">
+        <div class="mb-3">
+            <label for="nameInput" class="form-label">Enter your name</label>
+            <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label for="emailInput" class="form-label">Enter your name</label>
+            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="messageInput" class="form-label">Enter your message</label>
+            <textarea class="form-control" id="messageInput" rows="3" placeholder="Enter your message"></textarea>
+        </div>
+        <center>
+            <button class="btn btn-primary mb-3">Submit!</button>
+        </center>
+    </form>
 </div>
 {% endblock body %}

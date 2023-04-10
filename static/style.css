@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.max-wid {
+    max-width: 700px;
+}
+
+.bg-img {
+    /* Writer image link: https://unsplash.com/photos/s9CC2SKySJM */
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/static/images/writer.jpg");
+}
+
+.bg-contact {
+    /* Writer image link: https://unsplash.com/photos/-0xCCPIbl3M */
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/static/images/contact.jpg");
+}
+
+.bg-img, .bg-contact {
+    background-position: center;
+    height: 70vh;
+    color: #fff;
+}
+
+.bg-img div, .bg-contact div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.blog-main-link {
+    text-decoration: none;
+    color: #212529;
+}
